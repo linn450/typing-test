@@ -1,0 +1,71 @@
+  
+@keyframes wordAnimation {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap'); 
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+  #quote {
+    font-size: 2em;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  #input {
+    font-size: 1.5em;
+    padding: 0.5em;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    text-align: center;
+    width: 300px;
+    background-color: transparent;
+    border-radius: 5px;
+  }
+  #input:focus {
+    border-color: #888;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .highlighted {
+    background-color: #E3D7D5;
+    animation: wordAnimation 0.3s ease-in-out;
+  }
+
+  
+  
+.difficulty-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.difficulty-buttons button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-size: 1em;
+  background-color: #ccc;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.difficulty-buttons button:focus {
+  outline: none;
+}
