@@ -1,11 +1,20 @@
+
+// words for standard mode NATO Phonetics
 document.addEventListener('DOMContentLoaded', function() {
-  const words = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliett', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 'quebec', 'romeo', 'sierra', 'tango', 'uniform', 'victor', 'whiskey', 'xray', 'yankee', 'zulu'];
+  const words = ['alpha', 'bravo', 'charlie', 'delta', 
+  'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliett', 
+  'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 
+  'quebec', 'romeo', 'sierra', 'tango', 'uniform', 
+  'victor', 'whiskey', 'xray', 'yankee', 'zulu'];
+
+  // add mode for common + unqiue 
 
   const quoteElement = document.getElementById('quote');
   const inputElement = document.getElementById('input');
   let quoteArray = [];
   let currentIndex = 0;
   let currentDifficulty = 'easy'; // default difficulty level
+  let currentText = 'standard'; // default text level
 
   generateQuote();
 
@@ -13,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const typedWord = inputElement.value.trim();
     const currentWord = quoteArray[currentIndex];
 
+
+     // check if word is correct, if correct remove and move on
     if (typedWord === currentWord) {
       inputElement.classList.remove('incorrect');
       inputElement.classList.add('correct');
@@ -23,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
         generateQuote();
         currentIndex = 0;
       }
+
+     
+      // highlight word to write 
       highlightCurrentWord();
     } else if (currentWord.startsWith(typedWord)) {
       inputElement.classList.remove('incorrect');
@@ -33,7 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Different difficulties / lengths
+
+
+
+  // different difficulties / lengths
   document.getElementById('easyButton').addEventListener('click', function() {
     setDifficulty('easy');
   });
@@ -120,6 +137,7 @@ const keySounds = {
   89: 'y', //    'y' key
   90: 'z', //    'z' key
 
+  8: 'backspace', //    'backspace' key
 
 };
 

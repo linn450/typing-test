@@ -69,3 +69,23 @@ body {
 .difficulty-buttons button:focus {
   outline: none;
 }
+
+.text-buttons {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.text-buttons button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-size: 1em;
+  background-color: #ccc;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.text-buttons button:focus {
+  outline: none;
+}
