@@ -1,12 +1,5 @@
-
-// words
 document.addEventListener('DOMContentLoaded', function() {
-  const words = ['alpha', 'bravo', 'charlie', 
-  'delta', 'echo', 'foxtrot', 'golf', 'hotel', 
-  'india', 'juliett', 'kilo', 'lima', 'mike', 
-  'november', 'oscar', 'papa', 'quebec', 
-  'romeo', 'sierra', 'tango', 'uniform', 
-  'victor', 'whiskey', 'xray', 'yankee' , 'zulu'];
+  const words = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliett', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 'quebec', 'romeo', 'sierra', 'tango', 'uniform', 'victor', 'whiskey', 'xray', 'yankee', 'zulu'];
 
   const quoteElement = document.getElementById('quote');
   const inputElement = document.getElementById('input');
@@ -40,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // different difficulities / lenghts
+  // Different difficulties / lengths
   document.getElementById('easyButton').addEventListener('click', function() {
     setDifficulty('easy');
   });
@@ -87,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
     highlightCurrentWord();
   }
 
-  // highlight word that needs to be typed
   function highlightCurrentWord() {
     const highlightedWord = document.querySelector('.highlighted');
     if (highlightedWord) {
@@ -96,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     quoteElement.children[currentIndex].classList.add('highlighted');
   }
 });
+
 
 // keyboard sounds 
 const keySounds = {
