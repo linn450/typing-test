@@ -1,3 +1,5 @@
+
+// words
 document.addEventListener('DOMContentLoaded', function() {
   const words = ['alpha', 'bravo', 'charlie', 
   'delta', 'echo', 'foxtrot', 'golf', 'hotel', 
@@ -10,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const inputElement = document.getElementById('input');
   let quoteArray = [];
   let currentIndex = 0;
-  let currentDifficulty = 'easy'; // Default difficulty level
+  let currentDifficulty = 'easy'; // default difficulty level
 
   generateQuote();
 
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // different difficulities / lenghts
   document.getElementById('easyButton').addEventListener('click', function() {
     setDifficulty('easy');
   });
@@ -84,11 +87,57 @@ document.addEventListener('DOMContentLoaded', function() {
     highlightCurrentWord();
   }
 
+  // highlight word that needs to be typed
   function highlightCurrentWord() {
     const highlightedWord = document.querySelector('.highlighted');
     if (highlightedWord) {
       highlightedWord.classList.remove('highlighted');
     }
     quoteElement.children[currentIndex].classList.add('highlighted');
+  }
+});
+
+// keyboard sounds 
+const keySounds = {
+
+  65: 'a', //    'a' key
+  66: 'b', //    'b' key
+  67: 'c', //    'c' key
+  68: 'd', //    'd' key
+  69: 'e', //    'e' key
+  70: 'f', //    'f' key
+  71: 'g', //    'g' key
+  72: 'h', //    'h' key
+  73: 'i', //    'i' key
+  74: 'j', //    'j' key
+  75: 'k', //    'k' key
+  76: 'l', //    'l' key
+  77: 'm', //    'm' key
+  78: 'n', //    'n' key
+  79: 'o', //    'o' key
+  80: 'p', //    'p' key
+  81: 'q', //    'q' key
+  82: 'r', //    'r' key
+  83: 's', //    's' key
+  84: 't', //    't' key
+  85: 'u', //    'u' key
+  86: 'v', //    'v' key
+  87: 'w', //    'w' key
+  88: 'x', //    'x' key
+  89: 'y', //    'y' key
+  90: 'z', //    'z' key
+
+
+};
+
+const inputField = document.getElementById('inputField');
+
+// Attach keydown event listener to the input field
+inputField.addEventListener('keydown', function (event) {
+  const keyCode = event.keyCode;
+  const soundId = keySounds[keyCode];
+  if (soundId) {
+    const audio = document.getElementById(soundId);
+    audio.play();
   }
 });
