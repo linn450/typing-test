@@ -130,10 +130,10 @@ const keySounds = {
 
 };
 
-const inputField = document.getElementById('inputField');
+const inputElement = document.getElementById('input');
 
 // Attach keydown event listener to the input field
-inputField.addEventListener('keydown', function (event) {
+inputElement.addEventListener('keydown', function (event) {
   const keyCode = event.keyCode;
   const soundId = keySounds[keyCode];
   if (soundId) {
