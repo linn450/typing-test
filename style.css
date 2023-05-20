@@ -15,16 +15,18 @@ body {
     align-items: center;
     height: 100vh;
   }
-  h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-  }
+
   #quote {
     font-size: 2em;
     line-height: 1.5;
     margin-bottom: 1em;
     text-align: center;
+    border: 5px solid #ccc;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #fff;
   }
+  
   #input {
     font-size: 1.5em;
     padding: 0.5em;
@@ -49,8 +51,7 @@ body {
     animation: wordAnimation 0.3s ease-in-out;
   }
 
-  
-  
+
 .difficulty-buttons {
   position: absolute;
   top: 10px;
@@ -90,3 +91,6 @@ body {
 .text-buttons button:focus {
   outline: none;
 }
+
+
+

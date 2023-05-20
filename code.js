@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     highlightCurrentWord();
   }
   
+  // fetching files
   async function fetchWordsFromFile(filename) {
     try {
       const response = await fetch(filename);
@@ -187,7 +188,6 @@ const keySounds = {
 
 const inputElement = document.getElementById('input');
 
-// Attach keydown event listener to the input field
 inputElement.addEventListener('keydown', function (event) {
   const keyCode = event.keyCode;
   const soundId = keySounds[keyCode];

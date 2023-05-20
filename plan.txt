@@ -1,3 +1,5 @@
 
 https://www.toptal.com/developers/keycode
 --> use for finidng key codes to add the corresponding sound 
+
+generate favicon with ai
