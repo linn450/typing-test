@@ -1,14 +1,3 @@
 
 https://www.toptal.com/developers/keycode
---> use for finding key codes to add the corresponding sound 
-
-other features to add? 
-- score
-- timer 
-- highscore
-- different words? 
-- implement words from words.txt if possible (have enough time for it)
-
-
-add a counter for words per minute? might be difficult
-add some more visual aspects? a dark mode? 
+--> use for finidng key codes to add the corresponding sound 
