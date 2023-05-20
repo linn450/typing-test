@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
   'quebec', 'romeo', 'sierra', 'tango', 'uniform', 
   'victor', 'whiskey', 'xray', 'yankee', 'zulu'];
 
-  const commonWordsFile = 'https://gist.githubusercontent.com/linn450/77ab93378d429ef9d5db45ef52968493/raw/392f21e37601079b379fdd8a8e2ea3c037aaa5b4/commonWords.txt';
-  const uniqueWordsFile = 'https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/ae0085b6a0c30686d8540358ee8e72a6b0be1c0c/uniqueWords.txt';
+  const commonWordsFile = 'https://gist.githubusercontent.com/linn450/77ab93378d429ef9d5db45ef52968493/raw/392f21e37601079b379fdd8a8e2ea3c037aaa5b4/commonWords';
+  const uniqueWordsFile = 'https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/ae0085b6a0c30686d8540358ee8e72a6b0be1c0c/uniqueWords';
 
   // add mode for common + unqiue 
   const quoteElement = document.getElementById('quote');
@@ -94,9 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentText === 'standard') {
       selectedWords = standard;
     } else if (currentText === 'unique') {
-      selectedWords = await fetchWordsFromFile('https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/ae0085b6a0c30686d8540358ee8e72a6b0be1c0c/uniqueWords.txt');
+      selectedWords = await fetchWordsFromFile('https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/ae0085b6a0c30686d8540358ee8e72a6b0be1c0c/uniqueWords');
     } else if (currentText === 'common') {
-      selectedWords = await fetchWordsFromFile('https://gist.githubusercontent.com/linn450/77ab93378d429ef9d5db45ef52968493/raw/392f21e37601079b379fdd8a8e2ea3c037aaa5b4/commonWords.txt');
+      selectedWords = await fetchWordsFromFile('https://gist.githubusercontent.com/linn450/77ab93378d429ef9d5db45ef52968493/raw/0c2588705ea90f2478e004a15f307984062eedda/commonWords');
     }
   
     for (let i = 0; i < wordCount; i++) {
