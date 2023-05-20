@@ -1,20 +1,30 @@
-
-// words for standard mode NATO Phonetics
 document.addEventListener('DOMContentLoaded', function() {
-  const words = ['alpha', 'bravo', 'charlie', 'delta', 
-  'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliett', 
-  'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 
-  'quebec', 'romeo', 'sierra', 'tango', 'uniform', 
-  'victor', 'whiskey', 'xray', 'yankee', 'zulu'];
-
-  // add mode for common + unqiue 
+  const wordTypes = {
+    standard: [
+      'alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 
+      'india', 'juliett', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 
+      'quebec', 'romeo', 'sierra', 'tango', 'uniform', 'victor', 'whiskey', 
+      'xray', 'yankee', 'zulu'
+    ],
+    common: [
+      'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'i', 'it', 'for', 
+      'not', 'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 
+      'by', 'from', 'they'
+    ],
+    unique: [
+      'apple', 'banana', 'carrot', 'dragon', 'elephant', 'flamingo', 'giraffe', 
+      'hedgehog', 'iguana', 'jaguar', 'koala', 'lemon', 'mango', 'nutmeg', 
+      'orange', 'papaya', 'quokka', 'raspberry', 'strawberry', 'tomato', 'uakari', 
+      'vanilla', 'watermelon', 'xylophone', 'yak', 'zebra'
+    ]
+  };
 
   const quoteElement = document.getElementById('quote');
   const inputElement = document.getElementById('input');
   let quoteArray = [];
   let currentIndex = 0;
   let currentDifficulty = 'easy'; // default difficulty level
-  let currentText = 'standard'; // default text level
+  let currentWordType = 'standard'; // default word type
 
   generateQuote();
 
@@ -22,21 +32,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const typedWord = inputElement.value.trim();
     const currentWord = quoteArray[currentIndex];
 
-
-     // check if word is correct, if correct remove and move on
     if (typedWord === currentWord) {
       inputElement.classList.remove('incorrect');
       inputElement.classList.add('correct');
+      quoteElement.children[currentIndex].classList.add('hidden');
       currentIndex++;
       inputElement.value = '';
-      quoteElement.children[currentIndex - 1].classList.add('hidden');
       if (currentIndex === quoteArray.length) {
         generateQuote();
         currentIndex = 0;
       }
-
-     
-      // highlight word to write 
       highlightCurrentWord();
     } else if (currentWord.startsWith(typedWord)) {
       inputElement.classList.remove('incorrect');
@@ -47,10 +52,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  document.getElementById('standard').addEventListener('click', function() {
+    setWordType('standard');
+  });
 
+  document.getElementById('common').addEventListener('click', function() {
+    setWordType('common');
+  });
 
+  document.getElementById('unique').addEventListener('click', function() {
+    setWordType('unique');
+  });
 
-  // different difficulties / lengths
   document.getElementById('easyButton').addEventListener('click', function() {
     setDifficulty('easy');
   });
@@ -62,6 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('hardButton').addEventListener('click', function() {
     setDifficulty('hard');
   });
+
+  function setWordType(wordType) {
+    currentWordType = wordType;
+    generateQuote();
+  }
 
   function setDifficulty(difficulty) {
     currentDifficulty = difficulty;
@@ -78,33 +96,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const wordCount = difficultySettings[currentDifficulty].wordCount;
 
     for (let i = 0; i < wordCount; i++) {
-      const randomIndex = Math.floor(Math.random() * words.length);
-      quoteArray.push(words[randomIndex]);
+      const randomIndex = Math.floor(Math.random() * wordTypes[currentWordType].length);
+      quoteArray.push(wordTypes[currentWordType][randomIndex]);
     }
 
     quoteElement.innerHTML = '';
-    for (let i = 0; i < quoteArray.length; i++) {
+    quoteArray.forEach((word, index) => {
       const span = document.createElement('span');
-      span.textContent = quoteArray[i];
+      span.textContent = word;
       quoteElement.appendChild(span);
-      if (i < quoteArray.length - 1) {
+      if (index !== quoteArray.length - 1) {
         const space = document.createTextNode(' ');
         quoteElement.appendChild(space);
       }
-    }
+    });
+
+    const quoteSpans = quoteElement.querySelectorAll('span');
+    quoteSpans.forEach((span, index) => {
+      if (index !== 0) {
+        span.classList.add('hidden');
+      }
+    });
 
     currentIndex = 0;
     highlightCurrentWord();
   }
 
   function highlightCurrentWord() {
-    const highlightedWord = document.querySelector('.highlighted');
-    if (highlightedWord) {
-      highlightedWord.classList.remove('highlighted');
-    }
-    quoteElement.children[currentIndex].classList.add('highlighted');
+    const quoteSpans = quoteElement.querySelectorAll('span');
+    quoteSpans.forEach((span, index) => {
+      if (index === currentIndex) {
+        span.classList.add('current');
+      } else {
+        span.classList.remove('current');
+      }
+    });
   }
-});
 
 
 // keyboard sounds 
@@ -137,18 +164,17 @@ const keySounds = {
   89: 'y', //    'y' key
   90: 'z', //    'z' key
 
-  8: 'backspace', //    'backspace' key
-
+  8: 'backspace', 
 };
 
-const inputElement = document.getElementById('input');
-
-// Attach keydown event listener to the input field
-inputElement.addEventListener('keydown', function (event) {
+inputElement.addEventListener('keydown', function(event) {
   const keyCode = event.keyCode;
   const soundId = keySounds[keyCode];
   if (soundId) {
     const audio = document.getElementById(soundId);
-    audio.play();
+    if (audio) {
+      audio.play();
+    }
   }
+});
 });
