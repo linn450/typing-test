@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   'quebec', 'romeo', 'sierra', 'tango', 'uniform', 
   'victor', 'whiskey', 'xray', 'yankee', 'zulu'];
 
-  const uniqueWordsFile = 'https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/9f5a126b8a1d5bc795c92337262c2f8d0af4fd5a/uniqueWords';
+  const uniqueWordsFile = 'https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/783f2b4f4bbb510459b44417ae7f91f2c00aab24/uniqueWords';
   const commonWordsFile = 'https://gist.githubusercontent.com/linn450/77ab93378d429ef9d5db45ef52968493/raw/0c2588705ea90f2478e004a15f307984062eedda/commonWords';
   
 
