@@ -1,12 +1,17 @@
-  
+/* to-do
+
+  1. responsiv design, ?
+  2. dark mode? 
+  3. pictures for which finger to use? 
+
+  */
+
 @keyframes wordAnimation {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap'); 
-
-body {
+  
+body {  
     font-family: 'Nunito', sans-serif;
     background-color: #f8f8f8;
     display: flex;
@@ -17,6 +22,7 @@ body {
   }
 
   #quote {
+    font-family: 'Nunito', sans-serif;
     font-size: 2em;
     line-height: 1.5;
     margin-bottom: 1em;
@@ -28,6 +34,7 @@ body {
   }
   
   #input {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.5em;
     padding: 0.5em;
     border: none;
@@ -61,6 +68,7 @@ body {
 .difficulty-buttons button {
   margin-left: 5px;
   padding: 5px 10px;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
   background-color: #ccc;
   border: none;
@@ -81,6 +89,7 @@ body {
 .text-buttons button {
   margin-left: 5px;
   padding: 5px 10px;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
   background-color: #ccc;
   border: none;
@@ -91,6 +100,5 @@ body {
 .text-buttons button:focus {
   outline: none;
 }
-
 
 
