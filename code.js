@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     } else if (currentText === 'unique') {
 
-      selectedWords = await fetchWordsFromFile('https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/9f5a126b8a1d5bc795c92337262c2f8d0af4fd5a/uniqueWords');
+      selectedWords = await fetchWordsFromFile('https://gist.githubusercontent.com/linn450/2847edd8cc6b447fe1058f459c90c9a7/raw/783f2b4f4bbb510459b44417ae7f91f2c00aab24/uniqueWords');
 
     } else if (currentText === 'common') {
 
