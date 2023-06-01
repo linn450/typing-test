@@ -297,3 +297,42 @@ inputElement.addEventListener('keydown', function (event) {
   }
 
 });
+
+
+// timer, did not manage to finish but got the main code. 
+
+// function startTimer(duration, display) {
+
+  // let timer = duration;
+
+  // let minutes, seconds;
+
+  // setInterval(function () {
+
+    // minutes = parseInt(timer / 60, 10);
+
+    // seconds = parseInt(timer % 60, 10);
+
+    // minutes = minutes < 10 ? "0" + minutes : minutes;
+
+    // seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    // display.textContent = minutes + ":" + seconds;
+
+    // if (--timer < 0) {
+
+      // timer = duration;
+
+    // }
+
+  // }, 1000);
+
+// }
+
+
+// const timerDuration = 60; // 1 min
+
+// const display = document.getElementById("timerDisplay");
+
+// startTimer(timerDuration, display);
+
